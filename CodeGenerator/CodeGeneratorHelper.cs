@@ -23,7 +23,7 @@ public class CodeGeneratorHelper
         /// Generates a security key using a bash script (`generate-key.sh`) in the project directory.
         /// Default key length is 64 characters but can be adjusted (e.g., `./generate-key.sh 128`).
         /// Use a company-specific key for better security and store it securely.
-        var securityKey = "/;Gy$deMv0b=U7|#SKFFC4NCdRQc217&;LPfA;)l&uf-gYJlE=)/ER#A&8nJv34W";
+        var securityKey = "p0BV=9M&%Z-WYn{e31hWcry6vW}[uNOx!dbTAS/NU4W_Sl9,Cs,?/YJ5Hy#VMLXwtr5NGd.$_5{[u>?\\XYfNn14>4TJ@6g-XJyI(#,]Z_(5i}cE,cj#K-_upS]%hIHwz";
         _securityKey = Encoding.ASCII.GetBytes(securityKey);
         _securityKeySalt = new byte[securityKey.Length + _seedSize];
         _charset=charset;
@@ -101,23 +101,4 @@ public class CodeGeneratorHelper
 
         return keyByte == expectedKeyByte && checksum == expectedChecksum;
     }
-    // private string EncodeBase23(ulong value,int baseNValue)
-    // {
-    //     char[] result = new char[_codeSize];
-    //     for (int i = _codeSize - 1; i >= 0; i--)
-    //     {
-    //         result[i] = _charset[(int)(value % 23)];
-    //         value /= 23;
-    //     }
-    //     return new string(result);
-    // }
-    // private ulong DecodeBase23(string key)
-    // {
-    //     ulong value = 0;
-    //     foreach (char c in key)
-    //     {
-    //         value = value * 23 + (ulong)_charset.IndexOf(c);
-    //     }
-    //     return value;
-    // }
 }
