@@ -86,22 +86,16 @@ OcrService.WriteToText();
 The following references were studied and partially implemented to ensure robust text line extraction, skew correction, and baseline fitting from OCR-parsed JSON:
 
 1. **Ray Smith**, *An Overview of the Tesseract OCR Engine*, Google Inc., ICDAR 2007.  
-   [PDF: Conference 2007 - An Overview of the Tesseract OCR Engine](./docs/Conference%202007%20An%20Overview%20of%20the%20Tesseract%20OCR%20Engine.pdf)
 
 2. **Ray Smith**, *A Simple and Efficient Skew Detection Algorithm via Text Row Accumulation*, HP Laboratories Bristol, 1994.  
-   [PDF: A Simple and Efficient Skew Detection Algorithm](./docs/A%20Simple%20and%20Efficient%20Skew%20Detection%20Algorithm%20via%20Text%20Row%20Algorithm.pdf)
 
 3. **Akhil S**, *An Overview of Tesseract OCR Engine*, NIT Calicut, 2016.  
-   [PDF: Seminar Summary](./docs/An%20overview%20of%20Tesseract%20OCR%20Engine.pdf)
 
 4. **Andrew D. Bagdanov**, *Algorithms for Document Image Skew Estimation*, University of Nevada, Las Vegas, 1996.  
-   [PDF: UNLV Thesis](./docs/Algorithms%20for%20document%20image%20skew%20estimation.pdf)
 
 5. **Joost van Beusekom, Faisal Shafait, Thomas Breuel**, *Combined Orientation and Skew Detection Using Geometric Text-Line Modeling*.  
-   [PDF: Combined Skew & Orientation Detection](./docs/Combined%20Orientation%20and%20Skew%20Detection%20Using%20Geometric%20Text-Line%20Modeling.pdf)
 
 6. **Ray Smith**, Extracted Text Summary of Skew Detection Algorithm.  
-   [TXT: Skew Detection Algorithm Notes](./docs/skew_detection_algorithm_extracted.txt)
 
 ---
 
