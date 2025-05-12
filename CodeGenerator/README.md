@@ -61,8 +61,12 @@ This structure strikes a balance between **security**, **uniqueness**, and **cod
 - Typically calculated with a modulo operation across seed and keyByte (e.g. sum % 16).
 
 ---
+## 🔐 Brute-Force Collision Probability
 
 [`Brute-Force-Collision`](./docs/collision.md) — Brute-Force Collision Probability
+
+![Collision Tests](./docs/collision_tests.png)
+
 
 ---
 ## 📚 References

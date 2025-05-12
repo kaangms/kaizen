@@ -36,6 +36,10 @@ P = 1 - \left(1 - \frac{15,000,000}{78,310,985,281} \right)^{1,000,000}
 
 Even a relatively small set of valid codes becomes highly guessable when brute-force is applied at scale.
 
+### ⚠️ Implications
+
+![Collision Tests](./collision_tests.png)
+
 ---
 
 ### 🔒 Recommendations to Mitigate Brute-Force Risk

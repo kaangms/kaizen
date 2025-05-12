@@ -62,86 +62,31 @@ public class CodeGeneratorTests
     [InlineData(1_000_000)]
     [InlineData(10_000_000)]
     [InlineData(15_000_000)]
-    public void GenerateKeys_ShouldNotHaveCollision(int count)
+    public void RandomlyGeneratedCodes_ShouldRarelyBeValid(int count)
     {
-        Random random = new Random();
-        var bruteForceKeys = new List<string>();
-        for (int i = 0; i < count; i++)
-        {
-            string code = string.Empty;
-            for (int j = 0; j < 8; j++)
-            {
-                int randomIndex = random.Next(Charset.Length);
-                code += Charset[randomIndex];
-            }
-            bruteForceKeys.Add(code);
-        }
+        var random = new Random();
+        int validCount = 0;
 
-        var keys = _codeGeneratorHelper.GenerateKeys(count);
-        var inculudedKeys = keys.Intersect(bruteForceKeys).ToList();
-        if (inculudedKeys.Count > 0)
-        {
-            Console.WriteLine($"Collision found: {string.Join(", ", inculudedKeys)}");
-        }
-        var rateCollision = (double)(inculudedKeys.Count * 100) / count;
-        Assert.True(rateCollision <= 0.02, $"Collision rate is too high: {rateCollision}");
-    }
-    [Theory]
-    [InlineData(1)]
-    [InlineData(1_000)]
-    [InlineData(1_000_000)]
-    [InlineData(10_000_000)]
-    [InlineData(15_000_000)]
-    public void GenerateRandomKeys_ShouldNotHaveCollision(int count)
-    {
-        Random random = new Random();
-        int collisionCount = 0;
         for (int i = 0; i < count; i++)
         {
             string code = string.Empty;
             for (int j = 0; j < 8; j++)
             {
-                int randomIndex = random.Next(Charset.Length);
-                code += Charset[randomIndex];
+                int index = random.Next(Charset.Length);
+                code += Charset[index];
             }
+
             if (_codeGeneratorHelper.ValidateKey(code))
             {
-                collisionCount++;
+                validCount++;
             }
         }
-        double collisionRate = (ulong)collisionCount / (ulong)count;
-        double expectedProbability = CalculateCollisionProbability(count);
-        Assert.True(collisionRate >= expectedProbability, $"Çakışma oranı beklenenden yüksek: {collisionRate:P6}");
-    }
-    [Theory]
-    [InlineData(1)]
-    [InlineData(1_000)]
-    [InlineData(1_000_000)]
-    [InlineData(10_000_000)]
-    [InlineData(15_000_000)]
-    public void GenerateKeys_ShouldNotHaveCollision_Theoretical(int count)
-    {
-        Random random = new Random();
-        int collisionCount = 0;
-        for (int i = 0; i < count; i++)
-        {
-            string code = string.Empty;
-            for (int j = 0; j < 8; j++)
-            {
-                int randomIndex = random.Next(Charset.Length);
-                code += Charset[randomIndex];
-            }
-            if (_codeGeneratorHelper.ValidateKey(code))
-            {
-                collisionCount++;
-            }
-        }
-        double collisionRate = (ulong)collisionCount / (ulong)count;
-        double expectedProbability = CalculateCollisionProbability(count);
-        Console.WriteLine($"Gerçek çakışma oranı: {collisionRate:P6}, Teorik: {expectedProbability:P6}");
 
-        Assert.True(collisionRate >= expectedProbability, $"Çakışma oranı beklenenden yüksek: {collisionRate:P6}");
+        double validRate = (double)validCount / count;
+
+        // Allow extremely low false positives due to hash collisions
+        Assert.True(validRate < 0.00001, $"Too many valid codes from random: {validRate:P6}");
     }
-    private static double CalculateCollisionProbability(int codeCount) => (ulong)codeCount / (ulong)Math.Pow(23, 8);// will be 78,364,164,096
+
 }
 
