@@ -60,6 +60,9 @@ This structure strikes a balance between **security**, **uniqueness**, and **cod
 - Prevents accidental or brute-forced valid keys.
 - Typically calculated with a modulo operation across seed and keyByte (e.g. sum % 16).
 
+---
+
+[`Brute-Force-Collision`](./docs/collision.md) — Brute-Force Collision Probability
 
 ---
 ## 📚 References
