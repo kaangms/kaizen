@@ -2,7 +2,7 @@
 
 var charset = "ACDEFGHKLMNPRTXYZ234579";// 8 characters → ~36 bits
 var keyGeneratorHelper = new CodeGeneratorHelper(charset);
-var createdKeys = keyGeneratorHelper.GenerateKeys(1000);
+var createdKeys = keyGeneratorHelper.GenerateKeys(10000);
 for (int i = 0; i < createdKeys.Count; i++)
 {
     if (keyGeneratorHelper.ValidateKey(createdKeys[i])) continue;

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Length (default: 64 characters)
-LENGTH=${1:-64}
+# Length (default: 128 characters)
+LENGTH=${1:-128}
 
 # Karakter kümesi
 CHARSET='A-Za-z0-9!@#$%^&*()-_=+[]{}|;:,.<>?'

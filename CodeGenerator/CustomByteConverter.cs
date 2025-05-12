@@ -8,10 +8,11 @@ public class CustomByteConverter
 
     public CustomByteConverter(int size)
     {
+        // Size must be between 0 and 8 bytes for ulong
         if (size <= 0 || size > 8)
-            throw new ArgumentOutOfRangeException(nameof(size), "Size must be between 1 and 8.");
+            throw new ArgumentOutOfRangeException(nameof(size), "Size must be between 0 and 8.");
 
-        _bytes = new byte[size];
+        _bytes = size == 0 ? [] : new byte[size];
     }
 
     public CustomByteConverter(ulong value, int size)
@@ -33,7 +34,8 @@ public class CustomByteConverter
         ulong value = 0;
         for (int i = 0; i < _bytes.Length && i < 8; i++)
         {
-            value |= (ulong)_bytes[i] << (8 * i); // Little-endian
+            // Little-endian
+            value |= (ulong)_bytes[i] << (8 * i);
         }
         return value;
     }
@@ -41,7 +43,7 @@ public class CustomByteConverter
     {
         for (int i = 0; i < _bytes.Length && i < 8; i++)
         {
-            _bytes[i] = (byte)(value >> (8 * i)); // Little-endian olarak yaz
+            _bytes[i] = (byte)(value >> (8 * i));
         }
     }
 }

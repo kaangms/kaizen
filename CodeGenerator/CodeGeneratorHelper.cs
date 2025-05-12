@@ -43,7 +43,7 @@ public class CodeGeneratorHelper
         var uniqueSeeds = GenerateUniqueSeeds(count);
         for (int i = 0; i < uniqueSeeds.Length; i++)
         {
-            // Convert the seed to bytes
+            // Convert the seed to bytes 
             var seedBytes = new CustomByteConverter(uniqueSeeds[i], _seedSize).GetBytes();
             // Add salt to the seed bytes and hash the seed bytes with the security key
             byte derivedKeyByte = DeriveKeyByte(seedBytes);
