@@ -4,8 +4,8 @@ This repository presents my solutions to the two backend case study problems pro
 
 ## 🧩 Contents
 
-1. [`CodeGenerator`](./CodeGenerator.md) — Campaign Code Generator (Question 1)
-2. [`RecieptJsonParser`](./RecieptJsonParser.md) — Receipt JSON Parser (Question 2)
+1. [`CodeGenerator`](./CodeGenerator/README.md) — Campaign Code Generator (Question 1)
+2. [`RecieptJsonParser`](./RecieptJsonParser/README.md) — Receipt JSON Parser (Question 2)
 
 ---
 
