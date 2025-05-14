@@ -63,7 +63,7 @@ Each OCR block in the JSON includes a `boundingPoly.vertices` array, which conta
 
 The typical order of the 4 vertices is:
 
-![Vertex Index Diagram](./docs/vertex_index_diagram.png)
+![Vertex Index Diagram](./Docs/vertex_index_diagram.png)
 
 | Index | Description        |
 |-------|--------------------|
